@@ -27,11 +27,11 @@ const SingleData = (props) => {
                             <p className='mt-2'>{published_in}</p>
                         </div>
                         <div>
-                            <span className='cursor-pointer'>
+                            <label htmlFor="my-modal-5" className='cursor-pointer'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="bg-primary hover:bg-orange-800 text-white rounded-[50%] p-2 w-10 h-10">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                 </svg>
-                            </span>
+                            </label>
                         </div>
                     </div>
                 </div>
