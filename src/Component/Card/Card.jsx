@@ -12,15 +12,26 @@ const Card = () => {
         }
         lodeData();
     }, [])
-    console.log(data)
+    // console.log(data)
     return (
         <div>
-            {
-                data.map(singleData => {
-                    console.log(singleData)
-                    return <SingleData></SingleData>
-                })
-            }
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-12'>
+                {
+                    // data.map(singleData => {
+                    //     console.log(singleData)
+                    //     return <SingleData
+                    //         key={singleData.id}
+                    //         singleData={singleData}
+                    //     ></SingleData>
+                    // })
+                }
+                {
+                    data.map((singleData) => <SingleData
+                        key={singleData.id}
+                        singleData={singleData}
+                    ></SingleData>)
+                }
+            </div>
         </div>
     );
 };
