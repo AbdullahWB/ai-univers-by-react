@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Button>Sort By Date</Button>
       <Card></Card>
     </>
   )
