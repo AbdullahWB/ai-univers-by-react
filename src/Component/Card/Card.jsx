@@ -6,36 +6,43 @@ import SingleData from '../SingleData/SingleData';
 const Card = () => {
     const [data, setData] = useState([])
     const [showAll, setShowAll] = useState(false)
+    const [uniqueId, setUniqueId] = useState(null)
+    const [singleData, setSingleData] = useState({});
+
+    const dataShowAll = () => {
+        setShowAll(true);
+    }
+
+
+    useEffect(() => {
+        fetch(`https://openapi.programming-hero.com/api/ai/tool/${uniqueId}`)
+            .then(res => res.json())
+            .then(data => setSingleData(data.data))
+    }, [uniqueId])
+
+    // console.log(singleData)
+
     useEffect(() => {
         const lodeData = async () => {
-            const res = await fetch('https://openapi.programming-hero.com/api/ai/tools');
+            const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
             const data = await res.json();
-            // console.log(data.data.tools);
             setData(data.data.tools);
         }
         lodeData();
     }, [])
-    // console.log(data)
-    const dataShowAll = () => {
-        setShowAll(true);
 
-    }
+
+    // console.log(data)
+
+
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-12'>
                 {
-                    // data.map(singleData => {
-                    //     console.log(singleData)
-                    //     return <SingleData
-                    //         key={singleData.id}
-                    //         singleData={singleData}
-                    //     ></SingleData>
-                    // })
-                }
-                {
                     data.slice(0, showAll ? 12 : 6).map((singleData) => <SingleData
                         key={singleData.id}
                         singleData={singleData}
+                        setUniqueId={setUniqueId}
                     ></SingleData>)
                 }
             </div>
@@ -44,7 +51,7 @@ const Card = () => {
                     <Button>See More</Button>
                 </samp>)
             }
-            <Modal></Modal>
+            <Modal singleData={singleData}></Modal>
         </div>
     );
 };
