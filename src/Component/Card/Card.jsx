@@ -43,9 +43,9 @@ const Card = () => {
 
     return (
         <div>
-            <span onClick={handleSort}>
+            <samp className='inline-block' onClick={handleSort}>
                 <Button>Sort By Date</Button>
-            </span>
+            </samp>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-12'>
                 {
                     data.slice(0, showAll ? 12 : 6).map((singleData) => <SingleData

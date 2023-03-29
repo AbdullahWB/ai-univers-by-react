@@ -10,8 +10,8 @@ const Modal = (props) => {
             <input type="checkbox" id="my-modal-5" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box w-11/12 max-w-5xl">
-                    <div className='flex justify-between flex-row-reverse'>
-                        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+                    <div className='flex lg:justify-between md:flex-col-reverse  lg:flex-row-reverse flex-col-reverse'>
+                        <div className="card card-compact w-full bg-base-100 shadow-xl lg:ml-8">
                             <figure><img src={image_link && image_link[0]} alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{input_output_examples ? input_output_examples[0].input : ''}</h2>
@@ -20,7 +20,7 @@ const Modal = (props) => {
                         </div>
 
 
-                        <div className="card p-5 w-96 bg-secondary text-neutral border-primary border-2">
+                        <div className="card p-5 w-full bg-secondary text-neutral border-primary border-2">
                             <div className="card-body p-0">
                                 <h2 className="text-left font-bold text-2xl mb-3">{description}</h2>
                                 <div className="card-actions justify-between">
